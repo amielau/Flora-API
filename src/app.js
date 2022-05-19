@@ -1,7 +1,8 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
-import { json, urlencoded } from 'body-parser'
-import { apiRouter } from './api/router'
+import { apiRouter } from './api/apiRouter.js'
+import pkg from 'body-parser'
+const { json, urlencoded } = pkg
 
 const configurePolicies = (app) => {
   const bodyLimit = { limit: '20mb' }

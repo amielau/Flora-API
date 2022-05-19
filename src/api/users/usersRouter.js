@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { createAccount } from './createAccount'
-import { login } from './login'
+import { createAccount } from './createAccount.js'
+import { login } from './login.js'
 
 // prefix: /api/users
 
@@ -15,3 +15,9 @@ export const usersRouter = () => {
 
   return router
 }
+
+// example code for routes
+// router.get('/get', (req, res) => {
+//   res.send('it works!').status(200)
+// })
+// example code for routes
