@@ -1,4 +1,4 @@
-import { start } from './app.js'
+import { start } from './app'
 
 const PORT = 3030
 

@@ -1,7 +1,8 @@
-import express from 'express'
-import cookieParser from 'cookie-parser'
-import { apiRouter } from './api/apiRouter.js'
 import pkg from 'body-parser'
+import cookieParser from 'cookie-parser'
+import express from 'express'
+import { apiRouter } from './api/apiRouter'
+
 const { json, urlencoded } = pkg
 
 const configurePolicies = (app) => {

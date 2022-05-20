@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { createAccount } from './createAccount.js'
-import { login } from './login.js'
+import { createAccount } from './createAccount'
+import { login } from './login'
 
 // prefix: /api/users
 

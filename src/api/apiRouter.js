@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { usersRouter } from './users/usersRouter.js'
+import { usersRouter } from './users/usersRouter'
 
 // prefix: /api
 
