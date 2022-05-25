@@ -1,6 +1,7 @@
 import { ObjectId } from 'mongodb'
-import { created } from './status'
 import { cleanModel } from './cleanModel'
+import { created } from './status'
+import { secureForDisk, prepareForUse } from './secureForDisk'
 
 export const insertOne = async (collection, doc, createdBy) => {
   if (!createdBy) {
@@ -12,12 +13,11 @@ export const insertOne = async (collection, doc, createdBy) => {
   }
 
   const prepared = {
-    ...doc,
+    ...secureForDisk(doc),
     ...created(createdBy)
   }
 
   const result = await collection.insertOne(prepared)
-  console.log('result', JSON.stringify(result))
 
   if (!result.insertedId) {
     console.log('Could not insert document', JSON.stringify(doc))
@@ -28,5 +28,5 @@ export const insertOne = async (collection, doc, createdBy) => {
     _id: ObjectId(result.insertedId)
   })
 
-  return cleanModel(inserted)
+  return cleanModel(prepareForUse(inserted))
 }

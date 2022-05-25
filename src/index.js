@@ -1,3 +1,4 @@
+require('dotenv').config()
 import { start } from './app'
 
 const PORT = 3030

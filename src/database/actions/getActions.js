@@ -1,12 +1,11 @@
 import { getCollection } from '../connection'
-import { collectionNames } from '../collections/collectionNames'
+import { count } from './count'
 import { deleteOne } from './deleteOne'
 import { find } from './find'
 import { findOne } from './findOne'
 import { getById } from './getById'
 import { insertOne } from './insertOne'
 import { updateOne } from './updateOne'
-import { count } from './count'
 
 export const getActions = (collectionName, helpers = {}) => {
   const thunkCollection = async (thunk) => {
@@ -25,7 +24,8 @@ export const getActions = (collectionName, helpers = {}) => {
         find(collection, query, page, perPage, sort)
       ),
 
-    findOne: (query) => thunkCollection((collection) => findOne(collection)),
+    findOne: (query) =>
+      thunkCollection((collection) => findOne(collection, query)),
 
     getById: (id) => thunkCollection((collection) => getById(collection, id)),
 

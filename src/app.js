@@ -1,9 +1,18 @@
 import pkg from 'body-parser'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 import express from 'express'
 import { apiRouter } from './api/apiRouter'
 
 const { json, urlencoded } = pkg
+
+const corsOptionDelegation = cors((req, cb) => {
+  const options = {
+    origin: req.header('Origin') || '*',
+    credentials: true
+  }
+  cb(null, options)
+})
 
 const configurePolicies = (app) => {
   const bodyLimit = { limit: '20mb' }
@@ -11,9 +20,9 @@ const configurePolicies = (app) => {
   app.use(json(bodyLimit))
   app.use(urlencoded({ extended: false, ...bodyLimit }))
 
-  // app.use(corsOptionDelegation)
-  // app.options('*', corsOptionDelegation)
-  // app.head('*', corsOptionDelegation)
+  app.use(corsOptionDelegation)
+  app.options('*', corsOptionDelegation)
+  app.head('*', corsOptionDelegation)
 
   app.use(cookieParser())
 

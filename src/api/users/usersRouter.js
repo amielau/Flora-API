@@ -8,8 +8,7 @@ export const usersRouter = () => {
   const router = Router()
 
   // create account
-  router.post('/', createAccount)
-
+  router.post('/register', createAccount)
   // log in
   router.post('/login', login)
 
