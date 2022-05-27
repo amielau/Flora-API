@@ -29,8 +29,6 @@ export const createAccount = async (req, res) => {
     'api'
   )
 
-  console.log('created user', user)
-
   ok(res, {
     user: { username, email, fullName },
     token: issueToken(config.JWT_SECRET, { userId: user.id })

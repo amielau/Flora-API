@@ -1,7 +1,7 @@
-import { Requests } from './collections/requests'
+import { Plants } from './collections/plants'
 import { Users } from './collections/users'
 
 export const database = {
-  Requests: Requests(),
+  Plants: Plants(),
   Users: Users()
 }

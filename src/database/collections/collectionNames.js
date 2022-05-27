@@ -1,4 +1,4 @@
 export const collectionNames = {
-  Requests: 'requests',
+  Plants: 'plants',
   Users: 'users'
 }

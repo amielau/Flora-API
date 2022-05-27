@@ -4,7 +4,6 @@ import { config } from '../../config'
 const IV_LENGTH = 16 // For AES, this is always 16
 
 export function encrypt(text, key = config.ENCRYPTION_KEY) {
-  console.log('encrypt', text, key)
   if (!text || typeof text !== 'string') {
     return text
   }

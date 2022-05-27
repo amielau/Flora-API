@@ -10,5 +10,5 @@ start()
     })
   })
   .catch((err) => {
-    console.log('There was an error', JSON.stringify(err))
+    console.log('There was an error', err)
   })

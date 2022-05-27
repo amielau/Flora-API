@@ -1,8 +1,6 @@
 import { MongoClient, ServerApiVersion } from 'mongodb'
 import { config } from '../config'
 
-console.log('config', config)
-
 const connectionPoolSize = process.env.MONGO_DB_POOL_SIZE || 1
 
 let db, client
@@ -11,7 +9,6 @@ let block = null
 export const initialize = async () => {
   if (db == null) {
     if (block == null) {
-      console.log(config.MONGO_URI)
       block = new Promise(async (resolve) => {
         const _client = new MongoClient(config.MONGO_URI, {
           useNewUrlParser: true,

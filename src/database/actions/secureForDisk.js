@@ -36,7 +36,6 @@ const secureKey = (key) => {
 }
 
 export function secureForDisk(doc) {
-  console.log('secure', doc)
   if (doc == null) {
     return doc
   }

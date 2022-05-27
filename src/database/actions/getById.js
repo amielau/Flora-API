@@ -1,5 +1,6 @@
-import { ObjectID } from 'mongodb'
+import { ObjectId } from 'mongodb'
 import { cleanModel } from './cleanModel'
+import { prepareForUse } from './secureForDisk'
 import { active } from './status'
 
 export const getById = async (collection, id) => {
@@ -7,8 +8,8 @@ export const getById = async (collection, id) => {
 
   const found = await collection.findOne({
     ...active(),
-    _id: ObjectID(id),
+    _id: ObjectId(id)
   })
 
-  return cleanModel(found)
+  return cleanModel(prepareForUse(found))
 }
